@@ -12,10 +12,10 @@ import { initUI, updateScore, updateBirdsLeft, updateStars, setNextLevelButtonEn
 const DEBUG = true;
 const CANVAS_ID = 'gameCanvas';
 const ASSET_PATHS = {
-    redbird: '/assets/redbird.webp',
-    greenbird: '/assets/greenbird.png',
+    redbird: 'assets/redbird.webp',
+    greenbird: 'assets/greenbird.png',
     // Add paths for audio files if using separate files
-    // launchSound: '/assets/launch.mp3',
+    // launchSound: 'assets/launch.mp3',
     // ... other sounds
 };
 
