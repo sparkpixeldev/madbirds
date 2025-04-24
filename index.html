@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Birds</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--
+    Angry Birds Clone - Vanilla JS Project
+
+    Controls:
+    - Click and drag the bird in the slingshot to aim.
+    - Release the mouse button to launch the bird.
+    - Press 'R' key to restart the current level.
+    - Press 'N' key to go to the next level (if unlocked).
+    - Use Arrow Left/Right keys or drag empty space to pan the view (implementation pending).
+    - Click the Mute button (speaker icon) to toggle sound.
+
+    Asset Credits:
+    - Player Bird: /assets/redbird.webp (Provided)
+    - Enemy "Pig": /assets/greenbird.png (Provided)
+    - Other assets (blocks, background, UI) are procedurally generated or SVGs.
+
+    Extension Hooks:
+    - Add new bird types in js/entities.js by extending the Bird class.
+    - Define new levels in js/levels.js following the existing structure.
+    - Modify physics parameters in js/physics.js.
+    - Enhance UI elements and modals in js/ui.js.
+    -->
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas" width="1280" height="720">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+        <div id="hud">
+            <div class="hud-left">
+                <span id="score">Score: 0</span>
+            </div>
+            <div class="hud-center">
+                <span id="level-display">Level: 1</span> <!-- Placeholder -->
+                <span id="birds-left">Birds: 🐦🐦🐦</span> <!-- Placeholder -->
+                <div id="stars">
+                    <span>⭐</span><span>⭐</span><span>⭐</span> <!-- Placeholder -->
+                </div>
+            </div>
+            <div class="hud-right">
+                <button id="restart-button" aria-label="Restart Level">🔄</button>
+                <button id="next-level-button" aria-label="Next Level" disabled>▶️</button>
+                <button id="mute-button" aria-label="Mute Sound">🔊</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional Modals -->
+    <dialog id="level-complete-dialog">
+        <h2>Level Complete!</h2>
+        <p>Score: <span id="final-score">0</span></p>
+        <div id="final-stars">⭐⭐⭐</div>
+        <button id="dialog-next-level">Next Level</button>
+        <button id="dialog-replay-level">Replay</button>
+    </dialog>
+
+    <dialog id="game-over-dialog">
+        <h2>Game Over!</h2>
+        <p>No more birds left.</p>
+        <button id="dialog-restart-game-over">Try Again</button>
+    </dialog>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,183 @@
+/* Basic Reset/Normalize */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+    background-color: #333; /* Dark background for contrast */
+    font-family: sans-serif;
+    color: white;
+}
+
+/* Game Container - Handles Aspect Ratio Scaling */
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas#gameCanvas {
+    display: block;
+    background-color: #70c5ce; /* Placeholder sky blue */
+    /* Scaling will be handled by JS based on window size */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* HUD Styling */
+#hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 60px; /* Fixed height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    border-radius: 10px;
+    z-index: 10;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.hud-left, .hud-center, .hud-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Spacing between elements */
+}
+
+#stars span {
+    font-size: 1.5em;
+    color: #ccc; /* Default star color (inactive) */
+    text-shadow: 1px 1px 2px rgba(0,0,0, 0.5);
+}
+
+#stars span.active {
+    color: #ffd700; /* Active star color (gold) */
+}
+
+/* HUD Buttons */
+#hud button {
+    background: #eee;
+    border: none;
+    border-radius: 50%; /* Circular buttons */
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em; /* Larger icons */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#hud button:hover {
+    background: #fff;
+}
+
+#hud button:active {
+    transform: scale(0.95);
+}
+
+#hud button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #ccc;
+}
+
+/* Dialog/Modal Styling */
+dialog {
+    border: none;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: rgba(50, 50, 50, 0.9);
+    color: white;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    min-width: 300px;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+dialog h2 {
+    margin-bottom: 15px;
+    font-size: 2em;
+    color: #ffd700;
+}
+
+dialog p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+dialog #final-stars {
+    font-size: 2.5em; /* Large stars */
+    margin-bottom: 25px;
+}
+dialog #final-stars span {
+     color: #ccc;
+}
+dialog #final-stars span.active {
+     color: #ffd700;
+}
+
+dialog button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+dialog button:hover {
+    background-color: #45a049;
+}
+
+#dialog-replay-level, #dialog-restart-game-over {
+    background-color: #f44336; /* Red */
+}
+
+#dialog-replay-level:hover, #dialog-restart-game-over:hover {
+    background-color: #da190b;
+}
+
+
+/* Animation Keyframes */
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.animate-pop {
+    animation: pop 0.3s ease-out;
+}
+
+.animate-shake {
+    animation: shake 0.4s ease-in-out;
+} 
